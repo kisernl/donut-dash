@@ -354,9 +354,10 @@ export function move(direction) {
 export const restartGame = document
   .querySelector("#retry")
   .addEventListener("click", () => {
-    counterDOM.innerHTML = "0";
-    lanes.forEach((lane) => scene.remove(lane.mesh));
-    initializeValues();
-    gameOver = false;
-    endDOM.style.visibility = "hidden";
+    window.location.reload(); // this was simplest method to reset game
+    // counterDOM.innerHTML = "0";
+    // lanes.forEach((lane) => scene.remove(lane.mesh));
+    // initializeValues();
+    // gameOver = false;
+    // endDOM.style.visibility = "hidden";
   });

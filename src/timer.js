@@ -1,5 +1,3 @@
-import { restartGame } from "./gamePlay";
-
 let timesUp = false;
 
 let timeStarted = false;
