@@ -2,10 +2,13 @@ import { restartGame } from "./gamePlay";
 
 let timesUp = false;
 
+let timeStarted = false;
+
 export function startCountdown() {
+  if (timeStarted) return;
   const timerElement = document.getElementById("timer");
   let timeLeft = 15; // Start time in seconds
-  document.removeEventListener("keydown", startCountdown);
+  timeStarted = true; // prevents function from running on every keystroke or button click
 
   function updateTimer() {
     timerElement.textContent = timeLeft; // Update the displayed time

@@ -13,9 +13,10 @@ document.body.appendChild(renderer.domElement);
 
 // document.addEventListener("DOMContentLoaded", startCountdown);
 document.addEventListener("keydown", startCountdown);
-// document
-//   .getElementById("startButton")
-//   .addEventListener("click", startCountdown);
+const controls = document.querySelectorAll(".arrow-btn");
+controls.forEach((button) => {
+  button.addEventListener("click", () => startCountdown(controls));
+});
 
 // document.querySelector("#retry").addEventListener("click", () => {
 //   counterDOM.innerHTML = "0";
