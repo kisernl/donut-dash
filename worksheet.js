@@ -3,9 +3,9 @@ import {
   animate,
   move,
   restartGame,
-} from "../src/gamePlay.js";
-import { renderer } from "../src/renderer.js";
-import { startCountdown } from "../src/timer.js";
+} from "./src/gamePlay.js";
+import { renderer } from "./src/renderer.js";
+import { startCountdown } from "./src/timer.js";
 
 initializeValues();
 
