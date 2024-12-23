@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/IconParkGamepad.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donut Dash</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="game-container">
+        <div id="timer">15</div>
+
+        <div id="counter">0</div>
+        <div id="controls">
+          <div>
+            <button id="forward">
+              <svg width="30" height="30" viewBox="0 0 10 10">
+                <g transform="rotate(0, 5,5)">
+                  <path d="M5,4 L7,6 L3,6 L5,4" />
+                </g>
+              </svg>
+            </button>
+            <button id="left">
+              <svg width="30" height="30" viewBox="0 0 10 10">
+                <g transform="rotate(-90, 5,5)">
+                  <path d="M5,4 L7,6 L3,6 L5,4" />
+                </g>
+              </svg>
+            </button>
+            <button id="backward">
+              <svg width="30" height="30" viewBox="0 0 10 10">
+                <g transform="rotate(180, 5,5)">
+                  <path d="M5,4 L7,6 L3,6 L5,4" />
+                </g>
+              </svg>
+            </button>
+            <button id="right">
+              <svg width="30" height="30" viewBox="0 0 10 10">
+                <g transform="rotate(90, 5,5)">
+                  <path d="M5,4 L7,6 L3,6 L5,4" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="end">
+          <button id="retry">Try Again?</button>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/worksheet.js"></script>
+  </body>
+</html>
