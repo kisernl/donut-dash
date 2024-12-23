@@ -16,7 +16,7 @@
   },
   "name": "donut-dash",
   "version": "1.0.0",
-  "main": "script.js",
+  "main": "worksheet.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
