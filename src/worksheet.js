@@ -1,11 +1,6 @@
-import {
-  initializeValues,
-  animate,
-  move,
-  restartGame,
-} from "./src/gamePlay.js";
-import { renderer } from "./src/renderer.js";
-import { startCountdown } from "./src/timer.js";
+import { initializeValues, animate, move, restartGame } from "./gamePlay.js";
+import { renderer } from "./renderer.js";
+import { startCountdown } from "./timer.js";
 
 initializeValues();
 
