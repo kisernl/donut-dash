@@ -31,7 +31,8 @@ import { renderer } from "./renderer";
 
 export const counterDOM = document.getElementById("counter");
 export const endDOM = document.getElementById("end");
-import { timesUp } from "./timer";
+import { addTime, timesUp } from "./timer";
+import { checkpointAdd } from "./checkpoint";
 
 let lanes;
 let currentLane;
@@ -158,6 +159,12 @@ export const initializeValues = () => {
 let gameOver = false;
 if (timesUp) gameOver = true;
 
+// let checkpointModulus = 5; // Start with 5th lane as the first checkpoint
+// let checkpointCount = 0; // To track how many checkpoints you've passed
+
+let checkpointModulus = 5; // Start with 5th lane as the first checkpoint
+let checkpointCount = 1; // To track how many checkpoints you've passed
+
 export function animate(timestamp) {
   requestAnimationFrame(animate);
 
@@ -186,6 +193,20 @@ export function animate(timestamp) {
       });
     }
   });
+
+  // Check for checkpoint logic
+
+  checkpointAdd(currentLane);
+  // if (currentLane % checkpointModulus === 0 && currentLane !== 0) {
+  //   const increaseCheckpoint = () => (checkpointModulus += 10);
+  //   checkpointCount++;
+  //   increaseCheckpoint;
+  //   // checkpointModulus += 5; // Increment checkpointModulus by 5
+  //   addTime(5); // Add time logic
+  //   console.log(
+  //     `Checkpoint ${checkpointCount} reached at lane ${currentLane}. Next checkpoint at ${checkpointModulus}`
+  //   );
+  // }
 
   if (!gameOver && !timesUp) {
     if (startMoving) {
@@ -300,7 +321,7 @@ export function animate(timestamp) {
 export function move(direction) {
   const finalPositions = moves.reduce(
     (position, move) => {
-      console.log(`Processing move: ${move}, current position:`, position);
+      // console.log(`Processing move: ${move}, current position:`, position);
       if (move === "forward")
         return { lane: position.lane + 1, column: position.column };
       if (move === "backward")
@@ -354,6 +375,27 @@ export function move(direction) {
       return;
     if (!stepStartTimestamp) startMoving = true;
   }
+
+  // Check if the player has reached a checkpoint (when moving forward)
+  // let checkpointModulus = 5; // Start with 5th lane as the first checkpoint
+  // let checkpointCount = 0; // To track how many checkpoints you've passed
+  // console.log("before: ", checkpointModulus);
+
+  // if (
+  //   direction === "forward" &&
+  //   finalPositions.lane % checkpointModulus === 0 &&
+  //   finalPositions.lane !== 0
+  // ) {
+  //   checkpointCount++; // Increment checkpoint count
+  //   checkpointModulus += 5; // Increase modulus for next checkpoint
+  //   addTime(5);
+  //   console.log(
+  //     `Checkpoint ${checkpointCount} reached at lane ${finalPositions.lane}! Next checkpoint at lane multiple of ${checkpointModulus}`
+  //   );
+  // }
+
+  // console.log("after: ", checkpointModulus);
+
   moves.push(direction);
 }
 

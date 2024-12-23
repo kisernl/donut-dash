@@ -1,11 +1,10 @@
 let timesUp = false;
-
 let timeStarted = false;
+let timeLeft = 15; // Start time in seconds
 
 export function startCountdown() {
   if (timeStarted) return;
   const timerElement = document.getElementById("timer");
-  let timeLeft = 15; // Start time in seconds
   timeStarted = true; // prevents function from running on every keystroke or button click
 
   function updateTimer() {
@@ -24,6 +23,10 @@ export function startCountdown() {
 }
 
 export { timesUp };
+
+export function addTime(seconds) {
+  timeLeft += seconds; // Add extra time to the timer
+}
 
 // Start the countdown when the page loads (added to main js file)
 // document.addEventListener("DOMContentLoaded", startCountdown);
