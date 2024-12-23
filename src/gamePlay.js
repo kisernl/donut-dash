@@ -156,6 +156,7 @@ export const initializeValues = () => {
 };
 
 let gameOver = false;
+if (timesUp) gameOver = true;
 
 export function animate(timestamp) {
   requestAnimationFrame(animate);
@@ -288,6 +289,11 @@ export function animate(timestamp) {
       }
     });
   }
+  if (timesUp) {
+    gameOver = true;
+    endDOM.style.visibility = "visible";
+  }
+
   renderer.render(scene, camera);
 }
 
