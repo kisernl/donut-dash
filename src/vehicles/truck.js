@@ -36,24 +36,45 @@ export function Truck() {
   const cabin = new THREE.Mesh(
     new THREE.BoxGeometry(25 * zoom, 30 * zoom, 30 * zoom),
     [
-      new THREE.MeshPhongMaterial({ color, flatShading: true }),
       new THREE.MeshPhongMaterial({
         color,
+        emissive: color, // Adds a glow effect of the same color
+        emissiveIntensity: 0.15,
+        flatShading: true,
+      }),
+      new THREE.MeshPhongMaterial({
+        color,
+        emissive: color, // Adds a glow effect of the same color
+        emissiveIntensity: 0.15,
         flatShading: true,
         map: truckFrontTexture,
       }),
       new THREE.MeshPhongMaterial({
         color,
+        emissive: color, // Adds a glow effect of the same color
+        emissiveIntensity: 0.15,
         flatShading: true,
         map: truckRightSideTexture,
       }),
       new THREE.MeshPhongMaterial({
         color,
+        emissive: color, // Adds a glow effect of the same color
+        emissiveIntensity: 0.15,
         flatShading: true,
         map: truckLeftSideTexture,
       }),
-      new THREE.MeshPhongMaterial({ color, flatShading: true }),
-      new THREE.MeshPhongMaterial({ color, flatShading: true }),
+      new THREE.MeshPhongMaterial({
+        color,
+        emissive: color, // Adds a glow effect of the same color
+        emissiveIntensity: 0.15,
+        flatShading: true,
+      }),
+      new THREE.MeshPhongMaterial({
+        color,
+        emissive: color, // Adds a glow effect of the same color
+        emissiveIntensity: 0.15,
+        flatShading: true,
+      }),
     ]
   );
   cabin.position.x = -40 * zoom;

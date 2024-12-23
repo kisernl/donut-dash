@@ -19,7 +19,12 @@ export function Car() {
   const color = vehicleColors[Math.floor(Math.random() * vehicleColors.length)];
   const main = new THREE.Mesh(
     new THREE.BoxGeometry(60 * zoom, 30 * zoom, 15 * zoom),
-    new THREE.MeshPhongMaterial({ color, flatShading: true })
+    new THREE.MeshPhongMaterial({
+      color,
+      emissive: color,
+      emissiveIntensity: 0.35,
+      flatShading: true,
+    })
   );
   main.position.z = 12 * zoom;
   main.castShadow = true;
@@ -30,27 +35,27 @@ export function Car() {
     new THREE.BoxGeometry(33 * zoom, 24 * zoom, 12 * zoom),
     [
       new THREE.MeshPhongMaterial({
-        color: 0xcccccc,
+        color: 0xffffff,
         flatShading: true,
         map: carBackTexture,
       }),
       new THREE.MeshPhongMaterial({
-        color: 0xcccccc,
+        color: 0xffffff,
         flatShading: true,
         map: carFrontTexture,
       }),
       new THREE.MeshPhongMaterial({
-        color: 0xcccccc,
+        color: 0xffffff,
         flatShading: true,
         map: carRightSideTexture,
       }),
       new THREE.MeshPhongMaterial({
-        color: 0xcccccc,
+        color: 0xffffff,
         flatShading: true,
         map: carLeftSideTexture,
       }),
-      new THREE.MeshPhongMaterial({ color: 0xcccccc, flatShading: true }), // top
-      new THREE.MeshPhongMaterial({ color: 0xcccccc, flatShading: true }), // bottom
+      new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // top
+      new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // bottom
     ]
   );
   cabin.position.x = 6 * zoom;

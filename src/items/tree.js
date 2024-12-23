@@ -14,7 +14,12 @@ export function Tree() {
   const height = treeHeights[Math.floor(Math.random() * treeHeights.length)];
   const crown = new THREE.Mesh(
     new THREE.BoxGeometry(30 * zoom, 30 * zoom, height * zoom),
-    new THREE.MeshLambertMaterial({ color: 0x7aa21d, flatShading: true })
+    new THREE.MeshLambertMaterial({
+      color: 0x3e6e14,
+      emissive: 0x3e6e14, // Adds a glow effect of the same color
+      emissiveIntensity: 0.5,
+      flatShading: true,
+    })
   );
   crown.position.z = (height / 2 + 20) * zoom;
   crown.castShadow = true;
