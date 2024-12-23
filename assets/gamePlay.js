@@ -26,7 +26,7 @@ import {
   dirLight,
   initialDirLightPositionX,
   initialDirLightPositionY,
-} from "./light";
+} from "../src/light";
 import { renderer } from "./renderer";
 
 export const counterDOM = document.getElementById("counter");
