@@ -139,7 +139,7 @@ export function Lane(index) {
     }
   }
 }
-
+let gameOver = false;
 export const initializeValues = () => {
   lanes = generateLanes();
   currentLane = 0;
@@ -156,7 +156,6 @@ export const initializeValues = () => {
   dirLight.position.y = initialDirLightPositionY;
 };
 
-let gameOver = false;
 if (timesUp) gameOver = true;
 
 // let checkpointModulus = 5; // Start with 5th lane as the first checkpoint
@@ -399,13 +398,29 @@ export function move(direction) {
   moves.push(direction);
 }
 
-export const restartGame = document
-  .querySelector("#retry")
-  .addEventListener("click", () => {
-    window.location.reload(); // this was simplest method to reset game
-    // counterDOM.innerHTML = "0";
-    // lanes.forEach((lane) => scene.remove(lane.mesh));
-    // initializeValues();
-    // gameOver = false;
-    // endDOM.style.visibility = "hidden";
+// export const restartGame = document
+//   .querySelector("#retry")
+//   .addEventListener("click", () => {
+//     window.location.reload(); // this was simplest method to reset game
+//     // counterDOM.innerHTML = "0";
+//     // lanes.forEach((lane) => scene.remove(lane.mesh));
+//     // initializeValues();
+//     // gameOver = false;
+//     // endDOM.style.visibility = "hidden";
+//   });
+
+export const restartGame = () => {
+  const retryButton = document.querySelector("#retry");
+
+  // Restart game when the retry button is clicked
+  retryButton.addEventListener("click", () => {
+    window.location.reload();
   });
+
+  // Restart game when the Enter key is pressed
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && gameOver) {
+      window.location.reload();
+    }
+  });
+};

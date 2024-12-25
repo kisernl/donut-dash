@@ -1,13 +1,28 @@
 import { initializeValues, animate, move, restartGame } from "./gamePlay.js";
+import { modal } from "./modal.js";
 import { renderer } from "./renderer.js";
 import { startCountdown } from "./timer.js";
+
+modal;
 
 initializeValues();
 
 document.body.appendChild(renderer.domElement);
 
+// first iteration for starting timer below
 // document.addEventListener("DOMContentLoaded", startCountdown);
-document.addEventListener("keydown", startCountdown);
+
+// second iteration for starting timer
+// document.addEventListener("keydown", startCountdown);
+
+// updated to prevent timer starting from pressing enter to close modal
+document.addEventListener("keydown", (event) => {
+  const allowedKeys = ["ArrowUp", "ArrowRight", "ArrowLeft"];
+  if (allowedKeys.includes(event.key)) {
+    startCountdown();
+  }
+});
+
 const controls = document.querySelectorAll(".arrow-btn");
 controls.forEach((button) => {
   button.addEventListener("click", () => startCountdown(controls));
@@ -19,7 +34,7 @@ controls.forEach((button) => {
 //   initializeValues();
 //   endDOM.style.visibility = "hidden";
 // });
-restartGame;
+restartGame();
 
 document
   .getElementById("forward")
